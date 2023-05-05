@@ -9,13 +9,16 @@ const ItemCard = ({imgSrc, title, location}) => {
             source={{uri : imgSrc}}
             className="w-full h-36 rounded-md object-cover"
         />
+        {title ? (
+          <>
+          <Text className="text-[17px] text-black font-bold">{title?.length > 14 ? `${title.slice(0.14)}..` : title}</Text>
 
-        <Text className="text-[17px] text-black font-bold">{title?.length > 14 ? `${title.slice(0.14)}..` : title}</Text>
-
-        <View className="flex-row items-center space-x-1">
-        <FontAwesome name="map-marker" size={16} color="black" />
-        <Text className="text-[14px] text-gray-700 font-bold">{location?.length > 18 ? `${title.slice(0.18)}..` : location}</Text>
-        </View>
+          <View className="flex-row items-center space-x-1">
+          <FontAwesome name="map-marker" size={16} color="black" />
+          <Text className="text-[14px] text-gray-700 font-bold">{location?.length > 18 ? `${title.slice(0.18)}..` : location}</Text>
+          </View>
+          </>
+        ): <></>}
     </TouchableOpacity>
   )
 }
